@@ -12,6 +12,7 @@ import {
 import { usePrevious } from '@/hooks/use-previous';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { install, ResizeObserver } from 'resize-observer';
 
 interface SettingsBarProps {}
 type Item = {
@@ -95,6 +96,12 @@ const SettingsBar: FC<SettingsBarProps> = ({}) => {
         resizeObserver.observe(ref.current);
         return () => resizeObserver.disconnect(); // clean up
     }, [optionsMenu, menu]);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined' && !window.ResizeObserver) {
+            install();
+        }
+    }, []);
 
     return (
         <div
