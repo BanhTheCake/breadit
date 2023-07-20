@@ -34,12 +34,13 @@ const SettingsBar: FC<SettingsBarProps> = ({}) => {
     const clientWidthPrevRef = useRef<number | null>(null);
     const [menu, setMenu] = useState(initMenu);
     const [optionsMenu, setOptionsMenu] = useState<Item[]>([]);
+    const [isComplete, setIsComplete] = useState(false);
 
     const pathname = usePathname();
     const prefix = pathname.split('/');
 
     useEffect(() => {
-        if (!ref.current) return;
+        if (!ref.current || !isComplete) return;
         // Detect if user change the screen
         const resizeObserver = new ResizeObserver(() => {
             if (!ref.current || !inlineRef.current) return;
@@ -95,11 +96,12 @@ const SettingsBar: FC<SettingsBarProps> = ({}) => {
         });
         resizeObserver.observe(ref.current);
         return () => resizeObserver.disconnect(); // clean up
-    }, [optionsMenu, menu]);
+    }, [optionsMenu, menu, isComplete]);
 
     useEffect(() => {
         if (typeof window !== 'undefined' && !window.ResizeObserver) {
             install();
+            setIsComplete(true);
         }
     }, []);
 
