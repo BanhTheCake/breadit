@@ -22,8 +22,8 @@ const SignInButton: FC<SignInButtonProps> = ({}) => {
 
     return (
         <>
-            <Button className="w-full flex gap-2" size={'lg'} onClick={onLogin}>
-                <Icons.google className="h-6" />
+            <Button className="w-full flex" size={'lg'} onClick={onLogin}>
+                <Icons.google className="h-6 mr-2" />
                 Sign in with Google
             </Button>
             {/* <Button

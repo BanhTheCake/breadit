@@ -54,7 +54,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
 
     return (
         <Command
-            className="rounded-lg border shadow-sm max-w-[400px] relative overflow-visible"
+            className="rounded-lg border shadow-sm max-w-[400px] relative overflow-visible mx-4"
             ref={ref}
         >
             <SearchInput debounceSearch={debounceSearch} q={q} />

@@ -80,9 +80,9 @@ const UpdatePostForm: FC<UpdatePostFormProps> = ({ initPost }) => {
     };
 
     return (
-        <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+        <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
             <TextareaAutosize
-                className="font-medium text-3xl w-full outline-none resize-none bg-zinc-50 rounded-md border p-4 shadow-sm "
+                className="font-medium text-3xl w-full outline-none resize-none bg-zinc-50 rounded-md border p-4 shadow-sm mb-4"
                 placeholder="Type your title"
                 {...register('title')}
             />
@@ -93,7 +93,9 @@ const UpdatePostForm: FC<UpdatePostFormProps> = ({ initPost }) => {
                     <EditorContentInput value={value} onChange={onChange} />
                 )}
             />
-            <Button isLoading={isLoading}>Update post</Button>
+            <Button isLoading={isLoading} className="mt-4">
+                Update post
+            </Button>
         </form>
     );
 };

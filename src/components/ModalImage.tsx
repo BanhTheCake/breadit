@@ -133,9 +133,9 @@ const ModalImage: FC<ModalImageProps> = ({ onClose, src }) => {
     };
 
     return (
-        <div className="fixed inset-0 z-30 flex items-center justify-center ">
+        <div className="fixed top-0 bottom-0 left-0 right-0 z-30 flex items-center justify-center ">
             <div
-                className="absolute inset-0 bg-black/20"
+                className="absolute top-0 bottom-0 left-0 right-0 bg-black/20"
                 onClick={onGuardClose}
             ></div>
             <div

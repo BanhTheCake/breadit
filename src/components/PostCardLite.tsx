@@ -43,32 +43,35 @@ const PostCardLite: FC<PostCardLiteProps> = ({
                         size={'xs'}
                     />
                 </div>
-                <div className="p-2 w-full overflow-hidden flex flex-col gap-2">
-                    <Link
-                        href={{
-                            pathname: `/r/${subredditName}/post/${slug}`,
-                            query: {
-                                id: post.id,
-                            },
-                        }}
-                        className="font-medium text-xl flex"
-                    >
-                        {post.title}
-                    </Link>
-                    <h3 className="flex items-center gap-2">
+                <div className="p-2 w-full overflow-hidden flex flex-col">
+                    <div className="overflow-hidden">
+                        <p className="font-medium text-xl line-clamp-2">
+                            <Link
+                                href={{
+                                    pathname: `/r/${subredditName}/post/${slug}`,
+                                    query: {
+                                        id: post.id,
+                                    },
+                                }}
+                            >
+                                {post.title}
+                            </Link>
+                        </p>
+                    </div>
+                    <h3 className="flex items-center my-2">
                         <Link
                             href={`/r/${subredditName}`}
                             className="underline"
                         >
                             r/{subredditName}
                         </Link>
-                        <span className="h-[6px] w-[6px] bg-zinc-600 rounded-full" />
-                        <p className="text-zinc-500 text-sm">
+                        <span className="h-[6px] w-[6px] bg-zinc-600 rounded-full flex mx-2" />
+                        <p className="text-zinc-500 text-sm truncate">
                             Posted {formatTimeToNow(new Date(post.createdAt))}
                         </p>
                     </h3>
-                    <div className="flex gap-2 flex-1 mt-auto items-end">
-                        <MessageSquare className="pr-1" />
+                    <div className="flex  flex-1 mt-auto items-end">
+                        <MessageSquare className="pr-1 mr-2" />
                         <span className="text-zinc-600 font-medium">
                             {post._count.comment} message
                         </span>

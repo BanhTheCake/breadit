@@ -72,8 +72,8 @@ const UsernameForm: FC<UsernameFormProps> = ({}) => {
     };
 
     return (
-        <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
-            <div>
+        <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
+            <div className="mb-4">
                 <div className="relative">
                     <Label className="absolute top-0 bottom-0 px-4 flex items-center justify-center text-zinc-600">
                         u/

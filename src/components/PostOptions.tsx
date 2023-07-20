@@ -83,7 +83,7 @@ const PostOptions: FC<PostOptionsProps> = ({ post }) => {
                 <DropdownMenuTrigger asChild>
                     <Button
                         variant={'ghost'}
-                        className="aspect-square absolute top-2 right-2"
+                        className="aspect-square absolute top-2 right-2 bg-white"
                         size={'xs'}
                     >
                         {isDeleting ? (
@@ -106,9 +106,9 @@ const PostOptions: FC<PostOptionsProps> = ({ post }) => {
                                 '/post/edit/' +
                                 post.id
                             }
-                            className="flex gap-3 items-center"
+                            className="flex items-center"
                         >
-                            <ClipboardEdit className="h-[22px] stroke-zinc-700 stroke-1" />
+                            <ClipboardEdit className="h-[22px] stroke-zinc-700 stroke-1 mr-3" />
                             <p className="text-zinc-700 text-sm">Update</p>
                         </Link>
                     </DropdownMenuItem>
@@ -120,10 +120,10 @@ const PostOptions: FC<PostOptionsProps> = ({ post }) => {
                             className="bg-red-600 hover:!bg-red-500 transition-all"
                         >
                             <div
-                                className="flex gap-3 items-center transition-all text-white"
+                                className="flex items-center transition-all text-white"
                                 onClick={onDelete}
                             >
-                                <Trash2 className="h-[22px] stroke-white stroke-1" />
+                                <Trash2 className="mr-3 h-[22px] stroke-white stroke-1" />
                                 <p className="text-sm text-white">
                                     Click to delete
                                 </p>
@@ -131,10 +131,10 @@ const PostOptions: FC<PostOptionsProps> = ({ post }) => {
                         </DropdownMenuItem>
                     ) : (
                         <div
-                            className="flex gap-3 items-center relative  cursor-default select-none rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent"
+                            className="flex items-center relative  cursor-default select-none rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent"
                             onClick={onToggleDelete}
                         >
-                            <Trash2 className="h-[22px] stroke-zinc-700 stroke-1" />
+                            <Trash2 className="mr-3 h-[22px] stroke-zinc-700 stroke-1" />
                             <p className="text-zinc-700 text-sm">Delete</p>
                         </div>
                     )}

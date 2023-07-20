@@ -32,7 +32,7 @@ const Comment = async ({ postId, user }: CommentProps) => {
     });
 
     return (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col">
             {comments.length > 0 &&
                 comments.map((topComment) => {
                     return (

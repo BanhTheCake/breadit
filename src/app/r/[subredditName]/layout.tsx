@@ -33,17 +33,17 @@ export default async function SubredditLayout({
     });
 
     return (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col">
             <BackToHomeBtn />
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-start">
-                <div className="col-span-2">{children}</div>
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 items-start">
+                <div className="col-span-2 sm:mr-2">{children}</div>
                 <div className="col-span-1 hidden sm:flex flex-col border shadow-sm rounded-md overflow-hidden">
-                    <div className="p-4 py-6 flex items-center gap-2 w-full font-semibold bg-zinc-50">
+                    <div className="p-4 py-6 flex items-center w-full font-semibold bg-zinc-50">
                         <p>About r/{subredditName}</p>
                     </div>
-                    <div className="p-4 flex flex-col gap-4 bg-white">
-                        <div className="flex justify-between gap-2 border-b pb-4">
-                            <p className="text-zinc-600">Created</p>
+                    <div className="p-4 flex flex-col bg-white">
+                        <div className="flex justify-between border-b pb-4 mb-4">
+                            <p className="text-zinc-600 mr-2">Created</p>
                             <p>
                                 {format(
                                     new Date(subreddit.createdAt),
@@ -51,8 +51,8 @@ export default async function SubredditLayout({
                                 )}
                             </p>
                         </div>
-                        <div className="flex justify-between gap-2 border-b pb-4">
-                            <p className="text-zinc-600">Members</p>
+                        <div className="flex justify-between border-b pb-4">
+                            <p className="text-zinc-600 mr-2">Members</p>
                             <p>{countMembers}</p>
                         </div>
                         {session?.user &&

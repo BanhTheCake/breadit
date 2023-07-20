@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: 'jit',
   darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
@@ -10,9 +11,12 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: {
+        DEFAULT: '1rem',
+        md: '2rem', // md in padding must be provide in screen => if not it will not work
+      },
       screens: {
-        "2xl": "1400px",
+        md: '768px'
       },
     },
     extend: {
@@ -72,5 +76,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography')],
+  plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography'), require('@tailwindcss/line-clamp')],
 }

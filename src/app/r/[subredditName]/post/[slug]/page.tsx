@@ -11,6 +11,7 @@ import WriteCommentForm from '@/components/WriteCommentForm';
 import Comment from '@/components/Comment';
 import redis from '@/lib/redis';
 import { Post, User } from '@prisma/client';
+import { Metadata } from 'next';
 
 const EditorContentOutput = dynamic(
     () => import('@/components/EditorContentOutput'),
@@ -29,6 +30,31 @@ interface PostDetailsProps {
         slug: string;
     };
     searchParams?: { id?: string };
+}
+
+export async function generateMetadata({
+    params,
+    searchParams,
+}: PostDetailsProps): Promise<Metadata> {
+    const postId = searchParams?.id;
+    if (!postId) return notFound();
+    const key = ['post', postId].join('|');
+    const cache = await redis.get(key);
+    if (cache) {
+        const post = cache as PostDetails;
+        return {
+            title: `${post?.title ?? params.subredditName}`,
+            description: `${post?.title ?? params.subredditName}`,
+        };
+    }
+    const post = await db.post.findFirst({
+        where: { id: postId },
+    });
+    if (!post) return notFound();
+    return {
+        title: `${post?.title ?? params.subredditName}`,
+        description: `${post?.title ?? params.subredditName}`,
+    };
 }
 
 const PostDetailsPage = async ({
@@ -67,7 +93,7 @@ const PostDetailsPage = async ({
     };
 
     return (
-        <div className="flex gap-4 items-start">
+        <div className="flex items-start">
             <Suspense fallback={<VoteLoading />}>
                 <VoteServer
                     getData={getData}
@@ -75,7 +101,7 @@ const PostDetailsPage = async ({
                     userId={session?.user?.id}
                 />
             </Suspense>
-            <div className="bg-white rounded-md border shadow-sm p-4 flex-1 overflow-hidden">
+            <div className="bg-white rounded-md border shadow-sm p-4 flex-1 overflow-hidden ml-4">
                 <div className="pb-2">
                     <p className="text-sm text-zinc-400">
                         Posted by u/{post.User.username}{' '}
@@ -107,11 +133,11 @@ const PostDetailsPage = async ({
 
 const VoteLoading = () => {
     return (
-        <div className="flex flex-col gap-3 justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
             <Button variant={'ghost'} disabled={true}>
                 <ArrowBigUpDash />
             </Button>
-            <Loader2 className="h-4 w-4 animate-spin" />
+            <Loader2 className="h-4 w-4 animate-spin my-3" />
             <Button variant={'ghost'} disabled={true}>
                 <ArrowBigDownDash />
             </Button>

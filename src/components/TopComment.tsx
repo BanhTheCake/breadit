@@ -18,7 +18,7 @@ interface TopCommentProps {
 
 const TopComment: FC<TopCommentProps> = ({ comment, user, postId }) => {
     return (
-        <div>
+        <div className="mb-2 last:mb-0">
             <CommentCard comment={comment} user={user} postId={postId} />
             <div className="ml-4 pl-4 border-l-2 border-zinc-300 mt-2">
                 {comment.replies.length > 0 &&

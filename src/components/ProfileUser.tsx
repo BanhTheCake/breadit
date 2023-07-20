@@ -40,15 +40,15 @@ const ProfileUser: FC<ProfileUserProps> = async ({}) => {
                     <BtnChangeAvatar />
                 </div>
             </div>
-            <div className="p-3 pt-6 flex flex-col gap-2 bg-white">
+            <div className="p-3 pt-6 flex flex-col bg-white">
                 <p className="text-zinc-700 text-sm">
                     u/{session.user.username}
                 </p>
-                <div className="flex gap-2">
-                    <div className="flex-1 flex flex-col items-start">
+                <div className="flex my-2">
+                    <div className="flex-1 flex flex-col items-start mr-2">
                         <p className="text-sm mb-1">Communities</p>
-                        <div className="flex items-center gap-1">
-                            <Banana className="h-4 -ml-1" />
+                        <div className="flex items-center">
+                            <Banana className="h-4 -ml-1 mr-2" />
                             <span className="text-xs">
                                 {joinedCommunitiesCnt}
                             </span>
@@ -56,8 +56,8 @@ const ProfileUser: FC<ProfileUserProps> = async ({}) => {
                     </div>
                     <div className="flex-1 flex flex-col items-start">
                         <p className="text-sm mb-1">Posts</p>
-                        <div className="flex items-center gap-1">
-                            <StickyNote className="h-4 -ml-1" />
+                        <div className="flex items-center">
+                            <StickyNote className="h-4 -ml-1 mr-2" />
                             <span className="text-xs">{postsCnt}</span>
                         </div>
                     </div>

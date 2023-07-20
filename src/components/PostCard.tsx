@@ -57,30 +57,33 @@ const PostCard: FC<PostCardProps> = ({ post, subredditName, sessionId }) => {
                     />
                 </div>
                 <div className="p-4 w-full overflow-hidden">
-                    <h3 className="flex items-center gap-2">
+                    <h3 className="flex items-center overflow-hidden">
                         <Link
                             href={`/r/${subredditName}`}
-                            className="underline"
+                            className="underline flex-shrink-0"
                         >
                             r/{subredditName}
                         </Link>
-                        <span className="h-[6px] w-[6px] bg-zinc-600 rounded-full" />
-                        <p className="text-zinc-500 text-sm">
+                        <span className="h-[6px] w-[6px] bg-zinc-600 rounded-full mx-2 flex flex-shrink-0" />
+                        <p className="text-zinc-500 text-sm truncate flex-1">
                             Posted by u/{post.User.username}{' '}
                             {formatTimeToNow(new Date(post.createdAt))}
                         </p>
                     </h3>
-                    <Link
-                        href={{
-                            pathname: `/r/${subredditName}/post/${slug}`,
-                            query: {
-                                id: post.id,
-                            },
-                        }}
-                        className="font-medium text-2xl py-2 flex"
-                    >
-                        {post.title}
-                    </Link>
+                    <div className="w-full overflow-hidden">
+                        <p className="line-clamp-2 font-medium text-2xl py-2">
+                            <Link
+                                href={{
+                                    pathname: `/r/${subredditName}/post/${slug}`,
+                                    query: {
+                                        id: post.id,
+                                    },
+                                }}
+                            >
+                                {post.title}
+                            </Link>
+                        </p>
+                    </div>
                     <div
                         className="max-h-60 overflow-hidden relative"
                         ref={contentRef}
@@ -92,8 +95,8 @@ const PostCard: FC<PostCardProps> = ({ post, subredditName, sessionId }) => {
                     </div>
                 </div>
             </div>
-            <div className="p-3 bg-zinc-50 border-t flex gap-2">
-                <MessageSquare className="pr-1" />
+            <div className="p-3 bg-zinc-50 border-t flex">
+                <MessageSquare className="pr-1 mr-2" />
                 <span className="text-zinc-600 font-medium">
                     {post._count.comment} message
                 </span>

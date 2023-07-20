@@ -2,7 +2,13 @@ import PostFeedLite from '@/components/PostFeedLite';
 import { getAuthSession } from '@/lib/auth';
 import { LIMIT_PAGINATION } from '@/lib/config';
 import { db } from '@/lib/db';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+
+export const metadata: Metadata = {
+    title: 'Upvotes posts - Settings',
+    description: 'Manage your upvotes.',
+};
 
 const UpvotesSetting = async () => {
     const session = await getAuthSession();

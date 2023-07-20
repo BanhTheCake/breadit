@@ -49,19 +49,21 @@ const CommentCard: FC<CommentCardProps> = ({
     };
 
     return (
-        <div className="flex flex-col gap-1">
-            <div className="flex gap-2 items-center">
+        <div className="flex flex-col">
+            <div className="flex items-center mb-1">
                 <UserAvatar
                     image={user.image ?? undefined}
                     name={user.name ?? undefined}
                 />
-                <span className="font-medium text-sm">u/{user.username}</span>
+                <span className="font-medium text-sm mx-2">
+                    u/{user.username}
+                </span>
                 <span className="text-zinc-500 text-sm">
                     {formatTimeToNow(comment.createdAt)}
                 </span>
             </div>
-            <p>{comment.text}</p>
-            <div className="flex items-center">
+            <p className="mb-1">{comment.text}</p>
+            <div className="flex items-center mb-1">
                 <VoteClient
                     voteAmt={voteAmt}
                     currentVote={currentVote}

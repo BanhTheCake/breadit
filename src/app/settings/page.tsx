@@ -1,4 +1,10 @@
 import UsernameForm from '@/components/UsernameForm';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Username - Settings',
+    description: 'Change your profile.',
+};
 
 const SettingsPage = () => {
     return (

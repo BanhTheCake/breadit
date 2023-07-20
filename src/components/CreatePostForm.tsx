@@ -89,14 +89,14 @@ const CreatePostForm: FC<CreatePostFormProps> = ({ subreddit }) => {
     const { ref: titleFormRef, ...titleFormProps } = register('title');
 
     return (
-        <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+        <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
             <TextareaAutosize
                 ref={(e) => {
                     // @ts-ignore
                     titleRef.current = e;
                     titleFormRef(e);
                 }}
-                className="font-medium text-3xl w-full outline-none resize-none bg-zinc-50 rounded-md border p-4 shadow-sm "
+                className="font-medium text-3xl w-full outline-none resize-none bg-zinc-50 rounded-md border p-4 shadow-sm mb-4"
                 placeholder="Type your title"
                 {...titleFormProps}
             />
@@ -107,7 +107,9 @@ const CreatePostForm: FC<CreatePostFormProps> = ({ subreddit }) => {
                     <EditorContentInput value={value} onChange={onChange} />
                 )}
             />
-            <Button isLoading={isLoading}>Create post</Button>
+            <Button isLoading={isLoading} className="mt-4">
+                Create post
+            </Button>
         </form>
     );
 };

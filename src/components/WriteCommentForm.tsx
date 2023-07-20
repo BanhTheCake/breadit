@@ -98,13 +98,13 @@ const WriteCommentForm: FC<WriteCommentFormProps> = ({
 
     return (
         <form
-            className="flex flex-col gap-2 relative mb-2"
+            className="flex flex-col relative mb-2"
             onSubmit={handleSubmit(onSubmit)}
         >
             <TextareaAutosize
                 placeholder="What are you thing!"
                 className={cn(
-                    'w-full resize-none border outline-none p-3 rounded-md transition-all overflow-hidden',
+                    'w-full resize-none border outline-none p-3 rounded-md transition-all overflow-hidden mb-2',
                     {
                         'text-red-600 bg-red-100/50 border-red-500 placeholder:text-red-400':
                             !!errors.content?.message,

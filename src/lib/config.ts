@@ -1,1 +1,1 @@
-export const LIMIT_PAGINATION = 2;
+export const LIMIT_PAGINATION = 4;

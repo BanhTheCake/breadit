@@ -8,10 +8,20 @@ import { ImageIcon, Link2 } from 'lucide-react';
 import PostFeed from '@/components/PostFeed';
 import redis from '@/lib/redis';
 import { PostPagination } from '@/types/pagination';
+import { Metadata } from 'next';
 
 interface SubredditProps {
     params: {
         subredditName: string;
+    };
+}
+
+export async function generateMetadata({
+    params,
+}: SubredditProps): Promise<Metadata> {
+    return {
+        title: `r/${params.subredditName}`,
+        description: `Community r/${params.subredditName}`,
     };
 }
 
@@ -44,11 +54,11 @@ const SubredditPostPage = async ({
     });
 
     return (
-        <div className="flex flex-col gap-4">
-            <h1 className="font-semibold text-3xl">r/{subredditName}</h1>
+        <div className="flex flex-col">
+            <h1 className="font-semibold text-3xl mb-4">r/{subredditName}</h1>
             {session?.user && (
-                <div className="bg-white p-3 rounded-md shadow-sm border flex gap-4">
-                    <div className="relative w-fit">
+                <div className="bg-white p-3 rounded-md shadow-sm border flex mb-4">
+                    <div className="relative w-fit mr-4">
                         <UserAvatar
                             image={session.user.image ?? undefined}
                             name={session.user.name ?? undefined}
@@ -57,15 +67,18 @@ const SubredditPostPage = async ({
                     </div>
                     <Link
                         href={`/r/${subredditName}/post/create`}
-                        className="flex-1 border rounded-md p-2"
+                        className="flex-1 border rounded-md p-2 mr-4 overflow-hidden"
                     >
-                        <p className="text-zinc-500 pl-2 font-medium">
+                        <p className="text-zinc-500 pl-2 font-medium truncate">
                             What do you thing ...
                         </p>
                     </Link>
                     <Link
                         href={`/r/${subredditName}/post/create`}
-                        className={buttonVariants({ variant: 'ghost' })}
+                        className={buttonVariants({
+                            variant: 'ghost',
+                            className: 'mr-4',
+                        })}
                     >
                         <ImageIcon />
                     </Link>

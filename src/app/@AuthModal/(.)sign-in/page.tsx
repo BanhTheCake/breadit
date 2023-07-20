@@ -11,12 +11,12 @@ const SignInModal = ({}) => {
     };
 
     return (
-        <div className="fixed inset-0 z-30 flex items-center justify-center">
+        <div className="fixed top-0 bottom-0 left-0 right-0 z-30 flex items-center justify-center">
             <div
                 onClick={onCloseModal}
-                className="absolute inset-0 bg-black/20"
+                className="absolute top-0 bottom-0 left-0 right-0 bg-black/20"
             />
-            <div className="bg-zinc-50 border rounded-md p-10 relative animate-in fade-in duration-200">
+            <div className="bg-zinc-50 border rounded-md p-10 relative animate-in fade-in duration-200 mx-4">
                 <Button
                     className="absolute top-2 right-2"
                     onClick={onCloseModal}

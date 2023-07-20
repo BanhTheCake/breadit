@@ -84,12 +84,16 @@ const PostFeedLite: FC<PostFeedLiteProps> = ({
     }, [entry, hasNextPage, fetchNextPage, isFetchingNextPage]);
 
     return (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col">
             {allPosts && allPosts.length > 0 ? (
                 allPosts.map((post, i) => {
                     if (i === allPosts.length - 1) {
                         return (
-                            <div key={post.id} ref={lastPostRef}>
+                            <div
+                                key={post.id}
+                                ref={lastPostRef}
+                                className="mb-4 last:mb-0"
+                            >
                                 <PostCardLite
                                     sessionId={session.user?.id}
                                     post={post}
@@ -99,7 +103,7 @@ const PostFeedLite: FC<PostFeedLiteProps> = ({
                         );
                     }
                     return (
-                        <div key={post.id}>
+                        <div key={post.id} className="mb-4 last:mb-0">
                             <PostCardLite
                                 sessionId={session.user?.id}
                                 post={post}

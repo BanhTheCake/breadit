@@ -9,9 +9,9 @@ const Navbar = async ({}) => {
     const session = await getAuthSession();
     return (
         <div className="bg-zinc-100 border-b shadow-sm flex fixed top-0 left-0 right-0 z-20">
-            <div className="w-full flex justify-between py-4 container max-w-7xl m-auto items-center gap-4">
-                <Link href={'/'} className="flex gap-4 items-center">
-                    <Icons.logo className="h-8" />
+            <div className="w-full flex justify-between py-4 container max-w-7xl m-auto items-center">
+                <Link href={'/'} className="flex tems-center">
+                    <Icons.logo className="h-8 mr-4" />
                     <p className="prose max-w-prose font-semibold">Breadit</p>
                 </Link>
                 <SearchBar />

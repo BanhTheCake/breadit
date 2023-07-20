@@ -99,9 +99,9 @@ const SettingsBar: FC<SettingsBarProps> = ({}) => {
     return (
         <div
             ref={ref}
-            className="flex gap-2 bg-zinc-50 p-2 rounded-md shadow-sm mb-4 w-full overflow-hidden"
+            className="flex bg-zinc-50 p-2 rounded-md shadow-sm mb-4 w-full overflow-hidden"
         >
-            <div ref={inlineRef} className="flex gap-2">
+            <div ref={inlineRef} className="flex">
                 {menu.map((item) => {
                     let isActive = false;
                     if (item.link === '') {
@@ -115,6 +115,7 @@ const SettingsBar: FC<SettingsBarProps> = ({}) => {
                             key={item.label}
                             className={buttonVariants({
                                 variant: isActive ? 'default' : 'subtle',
+                                className: 'mr-2 last:mr-0',
                             })}
                         >
                             {item.label}
@@ -128,7 +129,9 @@ const SettingsBar: FC<SettingsBarProps> = ({}) => {
                         className="cursor-pointer outline-none"
                         asChild
                     >
-                        <Button variant={'subtle'}>...</Button>
+                        <Button variant={'subtle'} className="ml-2">
+                            ...
+                        </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" sideOffset={10}>
                         {optionsMenu.map((item) => {

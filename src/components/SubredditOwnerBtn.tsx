@@ -52,13 +52,15 @@ const SubredditOwnerBtn: FC<SubredditOwnerBtnProps> = ({ subreddit }) => {
 
     return (
         <>
-            <p className="text-zinc-600 text-sm">You created this community</p>
-            <div className="flex gap-4 w-full">
+            <p className="text-zinc-600 text-sm my-2">
+                You created this community
+            </p>
+            <div className="flex w-full">
                 <Link
                     href={`/r/${subreddit.name}/post/create`}
                     className={buttonVariants({
                         variant: 'outline',
-                        className: 'flex-1',
+                        className: 'flex-1 mr-4',
                     })}
                 >
                     Create post

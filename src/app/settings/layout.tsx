@@ -9,8 +9,8 @@ export default function SettingsLayout({
     return (
         <div>
             <SettingsBar />
-            <div className="grid grid-cols-1 md:grid-cols-7 gap-4">
-                <div className="col-span-5">{children}</div>
+            <div className="grid grid-cols-1 md:grid-cols-7">
+                <div className="col-span-5 md:mr-7">{children}</div>
                 <div className="col-span-2 hidden md:block">
                     <ProfileUser />
                 </div>

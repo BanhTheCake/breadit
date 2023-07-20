@@ -119,9 +119,6 @@ const VoteClient: FC<VoteClientProps> = ({
         <div
             className={cn('flex justify-center items-center', {
                 'flex-col': props.type === 'post',
-                'gap-3': size === 'default',
-                'gap-2': size === 'sm',
-                'gap-1': size === 'xs',
             })}
         >
             <Button
@@ -143,7 +140,15 @@ const VoteClient: FC<VoteClientProps> = ({
                     })}
                 />
             </Button>
-            <div>{_voteAmt}</div>
+            <div
+                className={cn({
+                    'my-3': size === 'default',
+                    'my-2': size === 'sm',
+                    'my-1': size === 'xs',
+                })}
+            >
+                {_voteAmt}
+            </div>
             <Button
                 variant={'ghost'}
                 onClick={() => {

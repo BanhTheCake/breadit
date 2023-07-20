@@ -8,6 +8,13 @@ interface CreatePostProps {
     };
 }
 
+export async function generateMetadata({ params }: CreatePostProps) {
+    return {
+        title: `r/${params.subredditName} - Create Post`,
+        description: `Create new post in r/${params.subredditName}`,
+    };
+}
+
 const CreatePostPage = async ({
     params: { subredditName },
 }: CreatePostProps) => {
@@ -20,8 +27,8 @@ const CreatePostPage = async ({
     return (
         <div>
             <div className="w-fit">
-                <div className="flex items-end gap-2">
-                    <h2 className="text-2xl font-semibold">Create Post</h2>
+                <div className="flex items-end">
+                    <h2 className="text-2xl font-semibold mr-2">Create Post</h2>
                     <p className="text-zinc-600">in r/{subredditName}</p>
                 </div>
                 <div className="h-[1px] w-full mt-3 mb-6 bg-zinc-300" />
