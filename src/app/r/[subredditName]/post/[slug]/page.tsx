@@ -101,7 +101,7 @@ const PostDetailsPage = async ({
                     userId={session?.user?.id}
                 />
             </Suspense>
-            <div className="bg-white rounded-md border shadow-sm p-4 flex-1 overflow-hidden md:ml-4">
+            <div className="bg-white rounded-md border shadow-sm p-4 flex-1 overflow-hidden md:ml-4 w-full">
                 <div className="pb-2">
                     <p className="text-sm text-zinc-400">
                         Posted by u/{post.User.username}{' '}
