@@ -8,6 +8,7 @@ import { MessageSquare } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { PostPagination } from '@/types/pagination';
 import slugify from 'slugify';
+import { ResizeObserver } from 'resize-observer';
 
 interface PostCardProps {
     post: PostPagination['data'][number];

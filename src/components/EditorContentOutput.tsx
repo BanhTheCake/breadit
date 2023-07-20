@@ -40,6 +40,8 @@ const EditorContentOutput: FC<EditorContentOutputProps> = ({ data }) => {
         };
     }, []);
 
+    console.log({ data });
+
     return (
         <article className="prose prose-img:my-4 max-w-full overflow-hidden prose-pre:overflow-auto">
             <Output data={data} />

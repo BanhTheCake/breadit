@@ -18,7 +18,7 @@ const SearchInput: FC<SearchInputProps> = ({ debounceSearch, q }) => {
 
     return (
         <CommandInput
-            className="border-none"
+            className="border-none text-base"
             placeholder="Type a name community..."
             value={input}
             onValueChange={(e) => {

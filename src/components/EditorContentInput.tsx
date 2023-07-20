@@ -38,7 +38,7 @@ const EditorContentInput: FC<EditorContentInputProps> = ({
                 minHeight: 300,
                 tools: {
                     embed: Embed,
-                    table: Table,
+                    // table: Table,
                     // code: Code,
                     codeBox: {
                         class: CodeBox,
