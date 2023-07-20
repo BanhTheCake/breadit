@@ -44,7 +44,7 @@ const VoteServer: FC<VoteServerProps> = async ({
                     type="post"
                 />
             </div>
-            <div className="block md:hidden bg-white rounded-md border shadow-sm p-2 mb-2">
+            <div className="block md:hidden bg-white rounded-md border shadow-sm p-2 mb-4">
                 <VoteClient
                     postId={postId}
                     userId={userId}
