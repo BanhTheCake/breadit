@@ -13,7 +13,7 @@ const SettingsPage = () => {
             <div className="h-[1px] bg-zinc-600 my-4 w-full" />
             <div className="flex flex-col gap-2">
                 <h2 className="text-2xl font-semibold">Name</h2>
-                <p className="text-zinc-800">
+                <p className="text-zinc-800 mb-2">
                     Username including capitalization cannot be changed.
                 </p>
                 <UsernameForm />

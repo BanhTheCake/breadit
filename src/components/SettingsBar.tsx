@@ -85,7 +85,7 @@ const SettingsBar: FC<SettingsBarProps> = ({}) => {
             if (scrollWidth > clientWidth && menu.length !== 0) {
                 // If the content overflows and there are items in the menu, remove the last item from the menu and add it back to optionsMenu
                 let eliminatedItem: Item | undefined = undefined;
-                eliminatedItem = menu.at(-1);
+                eliminatedItem = menu[menu.length - 1];
                 setMenu([...menu.slice(0, -1)]);
                 eliminatedItem &&
                     setOptionsMenu([...optionsMenu, eliminatedItem]);
@@ -99,7 +99,7 @@ const SettingsBar: FC<SettingsBarProps> = ({}) => {
     }, [optionsMenu, menu, isComplete]);
 
     useEffect(() => {
-        if (typeof window !== 'undefined' && !window.ResizeObserver) {
+        if (typeof window !== 'undefined') {
             install();
             setIsComplete(true);
         }
