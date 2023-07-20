@@ -47,7 +47,7 @@ const PostCard: FC<PostCardProps> = ({ post, subredditName, sessionId }) => {
     return (
         <div className="bg-white rounded-md border shadow-sm overflow-hidden">
             <div className="flex">
-                <div className="p-4 pr-0 flex items-start justify-center">
+                <div className="p-4 pr-0 items-start justify-center hidden md:flex">
                     <VoteClient
                         voteAmt={voteAmt}
                         currentVote={currentVote}
@@ -95,11 +95,24 @@ const PostCard: FC<PostCardProps> = ({ post, subredditName, sessionId }) => {
                     </div>
                 </div>
             </div>
-            <div className="p-3 bg-zinc-50 border-t flex">
-                <MessageSquare className="pr-1 mr-2" />
-                <span className="text-zinc-600 font-medium">
-                    {post._count.comment} message
-                </span>
+            <div className="p-3 bg-zinc-50 border-t flex justify-between items-center">
+                <div className="flex">
+                    <MessageSquare className="pr-1 mr-2" />
+                    <span className="text-zinc-600 font-medium">
+                        {post._count.comment} message
+                    </span>
+                </div>
+                <div className="flex md:hidden">
+                    <VoteClient
+                        voteAmt={voteAmt}
+                        currentVote={currentVote}
+                        userId={sessionId}
+                        postId={post.id}
+                        type="post"
+                        size={'sm'}
+                        direction="row"
+                    />
+                </div>
             </div>
         </div>
     );

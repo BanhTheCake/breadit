@@ -34,13 +34,28 @@ const VoteServer: FC<VoteServerProps> = async ({
     }
 
     return (
-        <VoteClient
-            postId={postId}
-            userId={userId}
-            currentVote={currentVote}
-            voteAmt={voteAmt}
-            type="post"
-        />
+        <>
+            <div className="hidden md:block">
+                <VoteClient
+                    postId={postId}
+                    userId={userId}
+                    currentVote={currentVote}
+                    voteAmt={voteAmt}
+                    type="post"
+                />
+            </div>
+            <div className="block md:hidden bg-white rounded-md border shadow-sm p-2 mb-2">
+                <VoteClient
+                    postId={postId}
+                    userId={userId}
+                    currentVote={currentVote}
+                    voteAmt={voteAmt}
+                    type="post"
+                    direction="row"
+                    size={'sm'}
+                />
+            </div>
+        </>
     );
 };
 

@@ -93,7 +93,7 @@ const PostDetailsPage = async ({
     };
 
     return (
-        <div className="flex items-start">
+        <div className="flex items-start flex-col md:flex-row">
             <Suspense fallback={<VoteLoading />}>
                 <VoteServer
                     getData={getData}
@@ -101,7 +101,7 @@ const PostDetailsPage = async ({
                     userId={session?.user?.id}
                 />
             </Suspense>
-            <div className="bg-white rounded-md border shadow-sm p-4 flex-1 overflow-hidden ml-4">
+            <div className="bg-white rounded-md border shadow-sm p-4 flex-1 overflow-hidden md:ml-4">
                 <div className="pb-2">
                     <p className="text-sm text-zinc-400">
                         Posted by u/{post.User.username}{' '}

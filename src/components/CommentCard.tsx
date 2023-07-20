@@ -50,7 +50,7 @@ const CommentCard: FC<CommentCardProps> = ({
 
     return (
         <div className="flex flex-col">
-            <div className="flex items-center mb-1">
+            <div className="flex items-center mb-1 truncate w-full">
                 <UserAvatar
                     image={user.image ?? undefined}
                     name={user.name ?? undefined}
@@ -70,6 +70,8 @@ const CommentCard: FC<CommentCardProps> = ({
                     commentId={comment.id}
                     userId={userAccount?.id}
                     type="comment"
+                    direction="row"
+                    size={'sm'}
                 />
                 <Button
                     variant={'ghost'}

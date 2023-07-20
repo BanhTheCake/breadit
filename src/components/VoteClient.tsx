@@ -26,6 +26,7 @@ type vote = {
     currentVote: TYPE_VOTE | undefined;
     userId: string | undefined;
     size?: VariantProps<typeof buttonVariants>['size'];
+    direction?: 'col' | 'row';
 };
 
 type VoteClientProps = vote & (PostVote | CommentVote);
@@ -35,6 +36,7 @@ const VoteClient: FC<VoteClientProps> = ({
     currentVote,
     userId,
     size = 'default',
+    direction = 'col',
     ...props
 }) => {
     const [_voteAmt, setVoteAmt] = useState(voteAmt);
@@ -118,7 +120,7 @@ const VoteClient: FC<VoteClientProps> = ({
     return (
         <div
             className={cn('flex justify-center items-center', {
-                'flex-col': props.type === 'post',
+                'flex-col': direction === 'col',
             })}
         >
             <Button
@@ -131,7 +133,7 @@ const VoteClient: FC<VoteClientProps> = ({
                     vote('UP');
                 }}
                 disabled={isLoading}
-                className={cn({ 'px-2': props.type === 'comment' })}
+                className={cn({ 'px-2': direction === 'col' })}
                 size={size}
             >
                 <ArrowBigUpDash
@@ -142,9 +144,12 @@ const VoteClient: FC<VoteClientProps> = ({
             </Button>
             <div
                 className={cn({
-                    'my-3': size === 'default',
-                    'my-2': size === 'sm',
-                    'my-1': size === 'xs',
+                    'my-3': size === 'default' && direction === 'col',
+                    'my-2': size === 'sm' && direction === 'col',
+                    'my-1': size === 'xs' && direction === 'col',
+                    'mx-3': size === 'default' && direction === 'row',
+                    'mx-2': size === 'sm' && direction === 'row',
+                    'mx-1': size === 'xs' && direction === 'row',
                 })}
             >
                 {_voteAmt}
@@ -159,7 +164,7 @@ const VoteClient: FC<VoteClientProps> = ({
                     vote('DOWN');
                 }}
                 disabled={isLoading}
-                className={cn({ 'px-2': props.type === 'comment' })}
+                className={cn({ 'px-2': direction === 'col' })}
                 size={size}
             >
                 <ArrowBigDownDash
