@@ -56,9 +56,7 @@ const SubbredditForm: FC<SubbredditFormProps> = ({}) => {
                 router.push(`/r/${data.data}`);
             },
             onError(error) {
-                console.log('Error');
                 if (error instanceof AxiosError) {
-                    console.log('Error axios: ', error.response?.data);
                     toast({
                         title: 'Uh on!',
                         description: error.response?.data,

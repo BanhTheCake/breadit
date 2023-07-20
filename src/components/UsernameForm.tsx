@@ -53,7 +53,6 @@ const UsernameForm: FC<UsernameFormProps> = ({}) => {
                 router.push(`/`);
             },
             onError(error) {
-                console.log('Error');
                 if (error instanceof AxiosError) {
                     toast({
                         title: 'Uh on!',
