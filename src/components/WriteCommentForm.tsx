@@ -126,7 +126,7 @@ const WriteCommentForm: FC<WriteCommentFormProps> = ({
             />
             <div
                 className={cn({
-                    'absolute bottom-2 right-2 flex': inlineBtn === true,
+                    'absolute bottom-4 right-2 flex': inlineBtn === true,
                     'ml-auto': inlineBtn === false,
                 })}
             >
